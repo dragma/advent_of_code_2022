@@ -1,0 +1,21 @@
+{
+  "name": "advent_of_code_2022",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "2022_12_1_1": "node 2022_12_1_1/index.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dragma/advent_of_code_2022.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dragma/advent_of_code_2022/issues"
+  },
+  "homepage": "https://github.com/dragma/advent_of_code_2022#readme"
+}
