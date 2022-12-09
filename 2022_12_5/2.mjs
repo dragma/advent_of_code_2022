@@ -5,10 +5,12 @@ import getStacks from "./utils/getStacks.mjs";
 const text = loadInput(5);
 
 const execute = (stacks, move, from, to) => {
+  const tmpCrates = []
   for (let i = 0; i < move; i++) {
     const crate = stacks[from - 1].pop();
-    stacks[to - 1].push(crate);
+    tmpCrates.push(crate);
   }
+  stacks[to - 1].push(...tmpCrates.reverse());
 };
 
 const stacks = getStacks(text);
