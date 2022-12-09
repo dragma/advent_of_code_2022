@@ -3,10 +3,8 @@ import { fileURLToPath } from "url";
 import path, { dirname } from "path";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-
 const inputFilePath = path.resolve(__dirname, "input.txt");
-
-const text = (await fs.readFileSync(inputFilePath)).toString();
+const text = await fs.readFileSync(inputFilePath).toString();
 
 const add = (acc, val) => acc + val;
 

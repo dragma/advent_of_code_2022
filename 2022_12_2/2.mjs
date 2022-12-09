@@ -4,7 +4,7 @@ import path, { dirname } from "path";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const inputFilePath = path.resolve(__dirname, "input.txt");
-const text = (await fs.readFileSync(inputFilePath)).toString();
+const text = fs.readFileSync(inputFilePath).toString();
 
 const POINTS = {
   A: 1,
