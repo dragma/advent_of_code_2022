@@ -1,12 +1,8 @@
-import fs from "fs";
-import { fileURLToPath } from "url";
-import path, { dirname } from "path";
+import loadInput from "../utils/loadInput.mjs";
+import sum from "../utils/sum.mjs";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const inputFilePath = path.resolve(__dirname, "input.txt");
-const text = await fs.readFileSync(inputFilePath).toString();
+const text = loadInput(1);
 
-const add = (acc, val) => acc + val;
 const sort = (a, b) => b - a;
 
 const sum = text
@@ -19,6 +15,6 @@ const sum = text
   )
   .sort(sort)
   .slice(0, 3)
-  .reduce(add, 0);
+  .reduce(sum, 0);
 
 console.log(sum);

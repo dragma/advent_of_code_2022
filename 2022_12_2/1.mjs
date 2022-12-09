@@ -1,10 +1,7 @@
-import fs from "fs";
-import { fileURLToPath } from "url";
-import path, { dirname } from "path";
+import loadInput from "../utils/loadInput.mjs";
+import sum from "../utils/sum.mjs";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const inputFilePath = path.resolve(__dirname, "input.txt");
-const text = fs.readFileSync(inputFilePath).toString();
+const text = loadInput(2);
 
 const POINTS = {
   X: 1,
@@ -27,13 +24,12 @@ const results = {
   CZ: "DRAW",
 };
 
-const add = (a, b) => a + b;
 const play = ([other, me]) => POINTS[me] + POINTS[results[`${other}${me}`]];
 
 const total = text
   .split("\n")
   .map((t) => t.split(" "))
   .map(play)
-  .reduce(add, 0);
+  .reduce(sum, 0);
 
 console.log(total);

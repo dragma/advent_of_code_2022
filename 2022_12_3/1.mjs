@@ -1,4 +1,6 @@
 import loadInput from "../utils/loadInput.mjs";
+import sum from "../utils/sum.mjs";
+import getCharPriority from "./utils/getCharPriority.mjs";
 
 const text = loadInput(3);
 
@@ -11,16 +13,6 @@ const findCommonChar = ([str1, str2]) => {
   throw new Error("Common char not found");
 };
 
-const getCharPriority = (char) => {
-  const code = char.charCodeAt();
-  if (code > 96) {
-    return code - 96;
-  }
-  return code - 38;
-};
-
-const add = (a, b) => a + b;
-
 const result = text
   .split("\n")
   .map((items) => {
@@ -29,6 +21,6 @@ const result = text
   })
   .map(findCommonChar)
   .map(getCharPriority)
-  .reduce(add);
+  .reduce(sum);
 
 console.log(result);

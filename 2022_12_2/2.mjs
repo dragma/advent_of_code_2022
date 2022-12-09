@@ -1,10 +1,7 @@
-import fs from "fs";
-import { fileURLToPath } from "url";
-import path, { dirname } from "path";
+import sum from "../utils/sum.mjs";
+import loadInput from "../utils/loadInput.mjs";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const inputFilePath = path.resolve(__dirname, "input.txt");
-const text = fs.readFileSync(inputFilePath).toString();
+const text = loadInput(2);
 
 const POINTS = {
   A: 1,
@@ -33,7 +30,6 @@ const shouldPlay = {
   CDRAW: "C",
 };
 
-const add = (a, b) => a + b;
 const play = ([other, me]) => {
   const goal = goals[me];
   const myPlay = shouldPlay[`${other}${goal}`];
@@ -44,6 +40,6 @@ const total = text
   .split("\n")
   .map((t) => t.split(" "))
   .map(play)
-  .reduce(add, 0);
+  .reduce(sum, 0);
 
 console.log(total);

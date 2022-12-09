@@ -1,19 +1,14 @@
-import fs from "fs";
-import { fileURLToPath } from "url";
-import path, { dirname } from "path";
+import loadInput from "../utils/loadInput.mjs";
+import sum from "../utils/sum.mjs";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const inputFilePath = path.resolve(__dirname, "input.txt");
-const text = await fs.readFileSync(inputFilePath).toString();
-
-const add = (acc, val) => acc + val;
+const text = loadInput(1);
 
 const max = Math.max(
   ...text.split("\n\n").map((t) =>
     t
       .split("\n")
       .map((s) => Number(s))
-      .reduce(add, 0)
+      .reduce(sum, 0)
   )
 );
 
